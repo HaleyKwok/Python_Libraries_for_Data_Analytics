@@ -29,9 +29,9 @@ data = {
 df = pd.DataFrame(data)
 
 # 返回第一行
-print(df.loc[0])
+print(df.iloc[0])
 # 返回第二行
-print(df.loc[1])
+print(df.iloc[1])
 
 print('----------------------------')
 

@@ -14,3 +14,8 @@ sites = {1: "Google", 2: "Runoob", 3: "Wiki"}
 myvar = pd.Series(sites)
 
 print(myvar)
+
+
+print('----------------------------')
+
+
