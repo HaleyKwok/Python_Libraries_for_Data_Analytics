@@ -2638,11 +2638,15 @@ df[df['temperature']>32] # df[df.temperature>32]
 # Reference
 
 [Runoob: Matplotlib](https://www.runoob.com/matplotlib/matplotlib-tutorial.html)
+<br>
 [Runoob: NumPy](https://www.runoob.com/numpy/numpy-tutorial.html)
+<br>
 [Runoob: Pandas](https://www.runoob.com/pandas/pandas-tutorial.html)
-
+<br>
 [Matplotlib.org](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html)
+<br>
 [Numpy.org](https://numpy.org/doc/stable/user/whatisnumpy.html)
+<br>
 [Pandas.pydata.org](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html)
-
+<br>
 [Pandas教程 | 数据处理三板斧——map、apply、applymap详解](https://zhuanlan.zhihu.com/p/100064394)
