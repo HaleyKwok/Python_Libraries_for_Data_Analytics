@@ -27,21 +27,21 @@ Matplotlib, Numpy, Panadas
   - [NumPy 数组属性](#numpy-数组属性)
     - [ndarray.ndim](#ndarrayndim)
     - [ndarray.shape](#ndarrayshape)
-  - [创建数组](#创建数组)
-  - [从已有的数组创建数组](#从已有的数组创建数组)
+  - [Create Array 创建数组](#create-array-创建数组)
+  - [Creating new array from existing array 从已有的数组创建数组](#creating-new-array-from-existing-array-从已有的数组创建数组)
     - [numpy.asarray](#numpyasarray)
-  - [从数值范围创建数组](#从数值范围创建数组)
+  - [Creating arrays from ranges of values 从数值范围创建数组](#creating-arrays-from-ranges-of-values-从数值范围创建数组)
   - [切片和索引](#切片和索引)
     - [一位数组](#一位数组)
-    - [多维数组](#多维数组)
-  - [高级索引](#高级索引)
-    - [整数数组索引](#整数数组索引)
-    - [布尔索引](#布尔索引)
-  - [广播(Broadcast)](#广播broadcast)
+    - [Multi-dimenstions array 多维数组](#multi-dimenstions-array-多维数组)
+  - [Advanced indexing 高级索引](#advanced-indexing-高级索引)
+    - [Indexing of integer arrays 整数数组索引](#indexing-of-integer-arrays-整数数组索引)
+    - [Boolean indexing 布尔索引](#boolean-indexing-布尔索引)
+  - [Broadcast 广播](#broadcast-广播)
 - [Pandas](#pandas)
   - [Series](#series)
   - [DataFrame](#dataframe)
-  - [读写数据](#读写数据)
+  - [Read data 读写数据](#read-data-读写数据)
     - [CSV 文件](#csv-文件)
       - [skiprows/ header = 1](#skiprows-header--1)
       - [names](#names)
@@ -51,16 +51,16 @@ Matplotlib, Numpy, Panadas
     - [JSON](#json)
     - [Dictionary](#dictionary)
     - [Tuples list](#tuples-list)
-  - [数据清洗](#数据清洗)
+  - [Data cleansing 数据清洗](#data-cleansing-数据清洗)
     - [dropna()](#dropna)
     - [isnull()](#isnull)
     - [fillna()](#fillna)
     - [interpolate() 中和数值](#interpolate-中和数值)
     - [replace()](#replace)
-    - [利用数据的均值、中位数值或众数](#利用数据的均值中位数值或众数)
-    - [清洗格式错误数据](#清洗格式错误数据)
-    - [清洗错误数据](#清洗错误数据)
-    - [清洗重复数据](#清洗重复数据)
+    - [Using the mean, median value or plurality of the data 利用数据的均值、中位数值或众数](#using-the-mean-median-value-or-plurality-of-the-data-利用数据的均值中位数值或众数)
+    - [Cleaning of incorrectly formatted data 清洗格式错误数据](#cleaning-of-incorrectly-formatted-data-清洗格式错误数据)
+    - [Cleaning of incorrect data 清洗错误数据](#cleaning-of-incorrect-data-清洗错误数据)
+    - [Cleaning duplicate data 清洗重复数据](#cleaning-duplicate-data-清洗重复数据)
   - [数据处理columns 列](#数据处理columns-列)
     - [df.columns](#dfcolumns)
     - [df[' ']](#df-)
@@ -101,9 +101,9 @@ Matplotlib, Numpy, Panadas
     - [multi index columns and rows](#multi-index-columns-and-rows)
     - [normalize](#normalize)
     - [aggfunc and values](#aggfunc-and-values)
-  - [数据操作](#数据操作)
+  - [Data operation 数据操作](#data-operation-数据操作)
     - [内置函数 max(), min(), std()](#内置函数-max-min-std)
-    - [操作符 > < =](#操作符---)
+    - [Operators 操作符 > < =](#operators-操作符---)
   - [Summary](#summary)
 - [Reference](#reference)
   
@@ -602,7 +602,7 @@ print (b)
  [5, 6]]
 ```
 
-## 创建数组
+## Create Array 创建数组
 >numpy.empty/ones/zeros(shape, dtype = float, order = 'C')
 
 ```python
@@ -627,7 +627,7 @@ print(z)
  [(0, 0) (0, 0)]]
 ```
 
-## 从已有的数组创建数组
+## Creating new array from existing array 从已有的数组创建数组
 ### numpy.asarray
 numpy.asarray 类似 numpy.array，但 numpy.asarray 参数只有三个，比 numpy.array 少两个。
 >numpy.asarray(a, dtype = None, order = None)
@@ -659,7 +659,7 @@ print (a)
 [1 2 3]
 ```
 
-## 从数值范围创建数组
+## Creating arrays from ranges of values 从数值范围创建数组
 根据 start 与 stop 指定的范围以及 step 设定的步长，生成一个 ndarray:
 
 >numpy.arange(start, stop, step, dtype)
@@ -696,7 +696,7 @@ print(b)
 [2 4 6]
 ```
 
-### 多维数组
+### Multi-dimenstions array 多维数组
 
 ```python
 import numpy as np
@@ -734,8 +734,8 @@ print (a[...,1:])  # 第2列及剩下的所有元素
  [4 5]
  [5 6]]
 ```
-## 高级索引
-### 整数数组索引
+## Advanced indexing 高级索引
+### Indexing of integer arrays 整数数组索引
 以下实例获取数组中(0,0)，(1,1)和(2,0)位置处的元素。
 
 ```python
@@ -801,7 +801,7 @@ print(d)
 ```
 
 
-### 布尔索引
+### Boolean indexing 布尔索引
 布尔索引通过布尔运算（如：比较运算符）来获取符合指定条件的元素的数组
 获取大于 5 的元素：
 ```python
@@ -828,7 +828,7 @@ print (x[x >  5])
 [ 6  7  8  9 10 11]
 ```
 
-## 广播(Broadcast)
+## Broadcast 广播
 
 如果两个数组 a 和 b 形状相同，即满足 a.shape == b.shape，那么 a*b 的结果就是 a 与 b 数组对应位相乘。这要求维数相同，且各维度的长度相同。
 ```python
@@ -955,7 +955,7 @@ print (df)
 ---
 
 
-## 读写数据
+## Read data 读写数据
 ### CSV 文件
 CSV（Comma-Separated Values，逗号分隔值，有时也称为字符分隔值，因为分隔字符也可以不是逗号），其文件以纯文本形式存储表格数据（数字和文本）。
 
@@ -1122,7 +1122,7 @@ day	temperature	windspeed	event
 
 
 
-## 数据清洗
+## Data cleansing 数据清洗
 
 很多数据集存在数据缺失、数据格式错误、错误数据或重复数据的情况，如果要对使数据分析更加准确，就需要对这些没有用的数据进行处理。
 
@@ -1433,7 +1433,7 @@ df
 5	exceptional	erica
 ```
 
-### 利用数据的均值、中位数值或众数
+### Using the mean, median value or plurality of the data 利用数据的均值、中位数值或众数
 mean()、median() 和 mode() 方法计算列的均值（所有值加起来的平均值）、中位数值（排序后排在中间的数）和众数（出现频率最高的数）：
 
 mean()：
@@ -1479,7 +1479,7 @@ print(df.to_string())
 ```
 
 
-### 清洗格式错误数据
+### Cleaning of incorrectly formatted data 清洗格式错误数据
 过包含空单元格的行，或者将列中的所有单元格转换为相同格式的数据
 ```python
 import pandas as pd
@@ -1503,7 +1503,7 @@ day2 2020-12-02        40
 day3 2020-12-26        45
 ```
 
-### 清洗错误数据
+### Cleaning of incorrect data 清洗错误数据
 对错误的数据进行替换或移除：
 
 ```python
@@ -1553,7 +1553,7 @@ print(df.to_string())
 ```
 
 
-### 清洗重复数据
+### Cleaning duplicate data 清洗重复数据
 
 如果我们要清洗重复数据，可以使用 duplicated() 和 drop_duplicates() 方法。
 如果对应的数据是重复的，duplicated() 会返回 True，否则返回 False。
@@ -2562,7 +2562,7 @@ Male	31.2	28.0
 
 
 ---
-## 数据操作
+## Data operation 数据操作
 ### 内置函数 max(), min(), std()
 查找某个数值：
 
@@ -2610,7 +2610,7 @@ day	temperature	windspeed	event
 
 
 
-### 操作符 > < = 
+### Operators 操作符 > < = 
 
 ```python
 df[df['temperature']>32] # df[df.temperature>32] 
