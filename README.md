@@ -2129,7 +2129,11 @@ city	temperature	humidity
 ### Concatenation And Keys
 
 ```python
-   city	temperature	humidity
+df = pd.concat([india_weather, us_weather], keys=["india", "us"])
+df
+
+# return
+city	temperature	humidity
 india	
 0	mumbai	32	80
 1	delhi	45	60
