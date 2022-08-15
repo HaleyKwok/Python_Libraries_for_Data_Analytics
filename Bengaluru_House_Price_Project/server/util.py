@@ -46,11 +46,11 @@ def load_saved_artifacts():
     global __locations
 
     # open the file
-    with open("./artifacts/columns.json", "r") as f:
+    with open("/Users/haleyk/Documents/Python_Libraries_for_Data_Analytics/Python_Libraries_for_Data_Analytics/Bengaluru_House_Price_Project/server/artifacts/columns.json", "r") as f:
         __data_columns = json.load(f)['data_columns']
         __locations = __data_columns[3:] # first 3 columns are "total_sqft", "bath", "bhk", and [3:] starts with "location" 
 
-    with open("./artifacts/banglore_home_prices_model.pickle", "rb") as f:
+    with open("/Users/haleyk/Documents/Python_Libraries_for_Data_Analytics/Python_Libraries_for_Data_Analytics/Bengaluru_House_Price_Project/server/artifacts/banglore_home_prices_model.pickle", "rb") as f:
         __model = pickle.load(f)
     print("loading saved artifacts...done\n")
 
