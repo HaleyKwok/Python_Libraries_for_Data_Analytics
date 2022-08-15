@@ -50,9 +50,14 @@ def load_saved_artifacts():
         __data_columns = json.load(f)['data_columns']
         __locations = __data_columns[3:] # first 3 columns are "total_sqft", "bath", "bhk", and [3:] starts with "location" 
 
-    with open("/Users/haleyk/Documents/Python_Libraries_for_Data_Analytics/Python_Libraries_for_Data_Analytics/Bengaluru_House_Price_Project/server/artifacts/banglore_home_prices_model.pickle", "rb") as f:
-        __model = pickle.load(f)
+    global __model
+    if __model is None:
+        with open("/Users/haleyk/Documents/Python_Libraries_for_Data_Analytics/Python_Libraries_for_Data_Analytics/Bengaluru_House_Price_Project/server/artifacts/banglore_home_price_model.pickle", "rb") as f:
+            __model = pickle.load(f)
     print("loading saved artifacts...done\n")
+    # with open("/Users/haleyk/Documents/Python_Libraries_for_Data_Analytics/Python_Libraries_for_Data_Analytics/Bengaluru_House_Price_Project/server/artifacts/banglore_home_prices_model.pickle", "rb") as f:
+    #     __model = pickle.load(f) -> need global variable __model to be able to use it in the predict_price function
+    # print("loading saved artifacts...done\n")
 
 
 if __name__ == '__main__':
@@ -62,3 +67,9 @@ if __name__ == '__main__':
     print(get_estimated_price('1st Phase JP Nagar', 1000, 3, 2))
     print(get_estimated_price('Kalhalli', 1000, 3, 2)) # other location, should return -1
     print(get_estimated_price('Ejipura', 1000, 3, 2)) # other location, should return -1
+
+
+
+
+
+     
