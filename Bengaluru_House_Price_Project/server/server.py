@@ -9,7 +9,7 @@ def get_location_names():
     })
 
     return response
-    return "Hello World!"
+    # return "Hello World!"
 
 
 
