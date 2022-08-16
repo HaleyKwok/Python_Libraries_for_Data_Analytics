@@ -19,6 +19,7 @@ def get_estimated_price(location, sqft, bhk, bath):
     x[2] = bhk
     if loc_index >= 0:
         x[loc_index] = 1
+
     return round(__model.predict([x])[0],2) # return only one element from the saved artifacts with 2 decimal numbers
 
 '''
