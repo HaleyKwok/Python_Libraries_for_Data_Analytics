@@ -9,7 +9,7 @@ def get_location_names():
     })
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
-    # return "Hello World!"
+
 
 # making HTTP call from HTML application
 @app.route('/predict_home_price', methods=['POST']) # POST method
@@ -24,7 +24,7 @@ def predict_home_price():
     })
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
-    # return "Hello World!"
+
 
 
 if __name__ ==  "__main__":
