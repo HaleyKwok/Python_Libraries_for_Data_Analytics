@@ -52,7 +52,7 @@ def load_saved_artifacts():
 
     global __model
     if __model is None:
-        with open("/Users/haleyk/Documents/Python_Libraries_for_Data_Analytics/Python_Libraries_for_Data_Analytics/Bengaluru_House_Price_Project/server/artifacts/banglore_home_price_model.pickle", "rb") as f:
+        with open("/Users/haleyk/Documents/Python_Libraries_for_Data_Analytics/Python_Libraries_for_Data_Analytics/Bengaluru_House_Price_Project/server/artifacts/banglore_home_prices_model.pickle", "rb") as f:
             __model = pickle.load(f)
     print("loading saved artifacts...done\n")
     # with open("/Users/haleyk/Documents/Python_Libraries_for_Data_Analytics/Python_Libraries_for_Data_Analytics/Bengaluru_House_Price_Project/server/artifacts/banglore_home_prices_model.pickle", "rb") as f:
@@ -65,8 +65,8 @@ if __name__ == '__main__':
     print(get_location_names())
     print(get_estimated_price('1st Phase JP Nagar', 1000, 3, 3))
     print(get_estimated_price('1st Phase JP Nagar', 1000, 3, 2))
-    print(get_estimated_price('Kalhalli', 1000, 3, 2)) # other location, should return -1
-    print(get_estimated_price('Ejipura', 1000, 3, 2)) # other location, should return -1
+    print(get_estimated_price('Kalhalli', 1000, 3, 2)) # other location
+    print(get_estimated_price('Ejipura', 1000, 3, 2)) # other location
 
 
 
