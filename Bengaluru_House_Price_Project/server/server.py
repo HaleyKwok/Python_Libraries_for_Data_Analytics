@@ -29,4 +29,5 @@ def predict_home_price():
 
 if __name__ ==  "__main__":
     print("Start Python Flask Server For Banglore Home Price Prediction.")
+    util.load_saved_artifacts() # load the saved artifacts and open the files in util.py
     app.run()
