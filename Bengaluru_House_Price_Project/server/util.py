@@ -38,8 +38,7 @@ def predict_price(location, sqft, bhk, bath):
 
 '''
 
-def get_location_names():
-    return __locations
+
 
 def load_saved_artifacts():
     print("loading saved artifacts...\n")
@@ -60,6 +59,12 @@ def load_saved_artifacts():
     #     __model = pickle.load(f) -> need global variable __model to be able to use it in the predict_price function
     # print("loading saved artifacts...done\n")
 
+def get_data_columns():
+    return __data_columns
+
+def get_location_names():
+    return __locations
+
 
 if __name__ == '__main__':
     load_saved_artifacts()
@@ -68,8 +73,6 @@ if __name__ == '__main__':
     print(get_estimated_price('1st Phase JP Nagar', 1000, 3, 2))
     print(get_estimated_price('Kalhalli', 1000, 3, 2)) # other location
     print(get_estimated_price('Ejipura', 1000, 3, 2)) # other location
-
-
 
 
 
