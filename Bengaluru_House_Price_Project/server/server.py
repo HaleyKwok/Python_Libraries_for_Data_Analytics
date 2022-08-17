@@ -14,7 +14,7 @@ def get_location_names():
 
 
 # making HTTP call from HTML application
-@app.route('/predict_home_price', methods=['GET', 'POST']) # method to be commissioned
+@app.route('/predict_home_price', methods=['GET','POST']) # method to be commissioned
 def predict_home_price():
     total_sqft = float(request.form['total_sqft'])
     location = request.form['location']
