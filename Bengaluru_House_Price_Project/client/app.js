@@ -21,7 +21,7 @@ function getBathValue() {
   
 // got the reaction based on the price estimation button 
 function onClickedEstimatePrice() {
-    
+
     console.log("Estimate price button clicked");
     var sqft = document.getElementById("uiSqft");
     var bhk = getBHKValue(); // return the function BHK value
@@ -30,7 +30,7 @@ function onClickedEstimatePrice() {
     var estPrice = document.getElementById("uiEstimatedPrice");
   
     var url = "http://127.0.0.1:5000/predict_home_price"; // for postman
-    var url = "/api/predict_home_price"; // for nginx
+    // var url = "/api/predict_home_price"; // for nginx
   
     $.post(url, {
         total_sqft: parseFloat(sqft.value),
