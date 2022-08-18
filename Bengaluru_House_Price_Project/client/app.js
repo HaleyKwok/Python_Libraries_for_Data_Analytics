@@ -21,6 +21,7 @@ function getBathValue() {
   
 // got the reaction based on the price estimation button 
 function onClickedEstimatePrice() {
+    
     console.log("Estimate price button clicked");
     var sqft = document.getElementById("uiSqft");
     var bhk = getBHKValue(); // return the function BHK value
