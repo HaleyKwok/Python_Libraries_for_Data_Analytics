@@ -59,8 +59,8 @@ def load_saved_artifacts():
     #     __model = pickle.load(f) -> need global variable __model to be able to use it in the predict_price function
     # print("loading saved artifacts...done\n")
 
-def get_data_columns():
-    return __data_columns
+# def get_data_columns():
+#     return __data_columns
 
 def get_location_names():
     return __locations
