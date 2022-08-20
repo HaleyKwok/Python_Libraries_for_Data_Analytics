@@ -1,7 +1,11 @@
 from flask import Flask, request, jsonify
 import util
 
-app = Flask(__name__)
+app = Flask(__name__) 
+'''
+The variable __name__ is passed as first argument when creating an instance of the Flask object (a Python Flask application). 
+In this case __name__ represents the name of the application package and it's used by Flask to identify resources
+'''
 
 @app.route('/get_location_names', methods=['GET'])
 def get_location_names():
