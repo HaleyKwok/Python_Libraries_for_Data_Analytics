@@ -27,21 +27,21 @@ Matplotlib, Numpy, Panadas
   - [NumPy 数组属性](#numpy-数组属性)
     - [ndarray.ndim](#ndarrayndim)
     - [ndarray.shape](#ndarrayshape)
-  - [Create Array 创建数组](#create-array-创建数组)
-  - [Creating new array from existing array 从已有的数组创建数组](#creating-new-array-from-existing-array-从已有的数组创建数组)
+  - [创建数组](#创建数组)
+  - [从已有的数组创建数组](#从已有的数组创建数组)
     - [numpy.asarray](#numpyasarray)
-  - [Creating arrays from ranges of values 从数值范围创建数组](#creating-arrays-from-ranges-of-values-从数值范围创建数组)
+  - [从数值范围创建数组](#从数值范围创建数组)
   - [切片和索引](#切片和索引)
     - [一位数组](#一位数组)
-    - [Multi-dimenstions array 多维数组](#multi-dimenstions-array-多维数组)
-  - [Advanced indexing 高级索引](#advanced-indexing-高级索引)
-    - [Indexing of integer arrays 整数数组索引](#indexing-of-integer-arrays-整数数组索引)
-    - [Boolean indexing 布尔索引](#boolean-indexing-布尔索引)
-  - [Broadcast 广播](#broadcast-广播)
+    - [多维数组](#多维数组)
+  - [高级索引](#高级索引)
+    - [整数数组索引](#整数数组索引)
+    - [布尔索引](#布尔索引)
+  - [广播(Broadcast)](#广播broadcast)
 - [Pandas](#pandas)
   - [Series](#series)
   - [DataFrame](#dataframe)
-  - [Read data 读写数据](#read-data-读写数据)
+  - [读写数据](#读写数据)
     - [CSV 文件](#csv-文件)
       - [skiprows/ header = 1](#skiprows-header--1)
       - [names](#names)
@@ -51,16 +51,17 @@ Matplotlib, Numpy, Panadas
     - [JSON](#json)
     - [Dictionary](#dictionary)
     - [Tuples list](#tuples-list)
-  - [Data cleansing 数据清洗](#data-cleansing-数据清洗)
+  - [数据清洗](#数据清洗)
     - [dropna()](#dropna)
     - [isnull()](#isnull)
     - [fillna()](#fillna)
     - [interpolate() 中和数值](#interpolate-中和数值)
     - [replace()](#replace)
-    - [Using the mean, median value or plurality of the data 利用数据的均值、中位数值或众数](#using-the-mean-median-value-or-plurality-of-the-data-利用数据的均值中位数值或众数)
-    - [Cleaning of incorrectly formatted data 清洗格式错误数据](#cleaning-of-incorrectly-formatted-data-清洗格式错误数据)
-    - [Cleaning of incorrect data 清洗错误数据](#cleaning-of-incorrect-data-清洗错误数据)
-    - [Cleaning duplicate data 清洗重复数据](#cleaning-duplicate-data-清洗重复数据)
+    - [split()](#split)
+    - [利用数据的均值、中位数值或众数](#利用数据的均值中位数值或众数)
+    - [清洗格式错误数据](#清洗格式错误数据)
+    - [清洗错误数据](#清洗错误数据)
+    - [清洗重复数据](#清洗重复数据)
   - [数据处理columns 列](#数据处理columns-列)
     - [df.columns](#dfcolumns)
     - [df[' ']](#df-)
@@ -69,6 +70,7 @@ Matplotlib, Numpy, Panadas
       - [reset_index](#reset_index)
       - [loc() by label](#loc-by-label)
       - [iloc() by position](#iloc-by-position)
+      - [.columns](#columns)
   - [数据处理rows 行](#数据处理rows-行)
     - [head()](#head)
     - [tail()](#tail)
@@ -80,6 +82,8 @@ Matplotlib, Numpy, Panadas
     - [apply](#apply)
     - [applymap](#applymap)
     - [get_dummies](#get_dummies)
+    - [split()](#split-1)
+    - [operator: ~](#operator-)
   - [Groupby](#groupby)
   - [Concatenation 串联](#concatenation-串联)
     - [Concatenation And Keys](#concatenation-and-keys)
@@ -101,13 +105,11 @@ Matplotlib, Numpy, Panadas
     - [multi index columns and rows](#multi-index-columns-and-rows)
     - [normalize](#normalize)
     - [aggfunc and values](#aggfunc-and-values)
-  - [Data operation 数据操作](#data-operation-数据操作)
+  - [数据操作](#数据操作)
     - [内置函数 max(), min(), std()](#内置函数-max-min-std)
-    - [Operators 操作符 > < =](#operators-操作符---)
+    - [操作符 > < =](#操作符---)
   - [Summary](#summary)
 - [Reference](#reference)
-  
-  
 # Matplotlib
 ## Matplotlib Pyplot
 使用 import 导入 pyplot 库，并设置一个别名 plt:
@@ -602,7 +604,7 @@ print (b)
  [5, 6]]
 ```
 
-## Create Array 创建数组
+## 创建数组
 >numpy.empty/ones/zeros(shape, dtype = float, order = 'C')
 
 ```python
@@ -627,7 +629,7 @@ print(z)
  [(0, 0) (0, 0)]]
 ```
 
-## Creating new array from existing array 从已有的数组创建数组
+## 从已有的数组创建数组
 ### numpy.asarray
 numpy.asarray 类似 numpy.array，但 numpy.asarray 参数只有三个，比 numpy.array 少两个。
 >numpy.asarray(a, dtype = None, order = None)
@@ -659,7 +661,7 @@ print (a)
 [1 2 3]
 ```
 
-## Creating arrays from ranges of values 从数值范围创建数组
+## 从数值范围创建数组
 根据 start 与 stop 指定的范围以及 step 设定的步长，生成一个 ndarray:
 
 >numpy.arange(start, stop, step, dtype)
@@ -696,7 +698,7 @@ print(b)
 [2 4 6]
 ```
 
-### Multi-dimenstions array 多维数组
+### 多维数组
 
 ```python
 import numpy as np
@@ -734,8 +736,8 @@ print (a[...,1:])  # 第2列及剩下的所有元素
  [4 5]
  [5 6]]
 ```
-## Advanced indexing 高级索引
-### Indexing of integer arrays 整数数组索引
+## 高级索引
+### 整数数组索引
 以下实例获取数组中(0,0)，(1,1)和(2,0)位置处的元素。
 
 ```python
@@ -801,7 +803,7 @@ print(d)
 ```
 
 
-### Boolean indexing 布尔索引
+### 布尔索引
 布尔索引通过布尔运算（如：比较运算符）来获取符合指定条件的元素的数组
 获取大于 5 的元素：
 ```python
@@ -828,7 +830,7 @@ print (x[x >  5])
 [ 6  7  8  9 10 11]
 ```
 
-## Broadcast 广播
+## 广播(Broadcast)
 
 如果两个数组 a 和 b 形状相同，即满足 a.shape == b.shape，那么 a*b 的结果就是 a 与 b 数组对应位相乘。这要求维数相同，且各维度的长度相同。
 ```python
@@ -955,7 +957,7 @@ print (df)
 ---
 
 
-## Read data 读写数据
+## 读写数据
 ### CSV 文件
 CSV（Comma-Separated Values，逗号分隔值，有时也称为字符分隔值，因为分隔字符也可以不是逗号），其文件以纯文本形式存储表格数据（数字和文本）。
 
@@ -1122,7 +1124,7 @@ day	temperature	windspeed	event
 
 
 
-## Data cleansing 数据清洗
+## 数据清洗
 
 很多数据集存在数据缺失、数据格式错误、错误数据或重复数据的情况，如果要对使数据分析更加准确，就需要对这些没有用的数据进行处理。
 
@@ -1433,7 +1435,62 @@ df
 5	exceptional	erica
 ```
 
-### Using the mean, median value or plurality of the data 利用数据的均值、中位数值或众数
+
+### split()
+[练习1：数据科学 with Flask](https://blog.csdn.net/m0_66706847/article/details/126349902?csdn_share_tail=%7B%22type%22%3A%22blog%22%2C%22rType%22%3A%22article%22%2C%22rId%22%3A%22126349902%22%2C%22source%22%3A%22m0_66706847%22%7D) 的例子：
+1. split ' ' 
+```python
+array(['2 BHK', '4 Bedroom', '3 BHK', '4 BHK', '6 Bedroom', '3 Bedroom',
+       '1 BHK', '1 RK', '1 Bedroom', '8 Bedroom', '2 Bedroom',
+       '7 Bedroom', '5 BHK', '7 BHK', '6 BHK', '5 Bedroom', '11 BHK',
+       '9 BHK', '9 Bedroom', '27 BHK', '10 Bedroom', '11 Bedroom',
+       '10 BHK', '19 BHK', '16 BHK', '43 Bedroom', '14 BHK', '8 BHK',
+       '12 Bedroom', '13 BHK', '18 Bedroom'], dtype=object)
+       
+# Add new feature(integer) for bhk (Bedrooms Hall Kitchen)
+df3['bhk'] = df3['size'].apply(lambda x: int(x.split(' ')[0])) # 拆解' '，取第一个元素
+
+# return 即为 2, 4....
+
+df3['bhk'].unique()
+
+# return
+array([ 2,  4,  3,  6,  1,  8,  7,  5, 11,  9, 27, 10, 19, 16, 43, 14, 12,
+       13, 18])
+```
+
+2. split ' - ' 
+```python
+array(['1056', '2600', '1440', ..., '1133 - 1384', '774', '4689'],
+      dtype=object)
+
+def is_float(x):
+        try:
+                float(x)
+                return True
+        except ValueError:
+                return False
+
+df3[df3['total_sqft'].apply(is_float)].head(10) # 没有反应，因为有' - '
+
+def convert_sqft_to_num(x):
+        token = x.split('-')
+        if len(token) == 2:
+                return (float(token[0]) + float(token[1])) / 2
+        try:
+            return float(x)
+        except:
+            return np.nan
+
+
+convert_sqft_to_num('1000-1200') # token[0] = 1000 token[1] = 1200 
+# return
+1100.0
+```
+
+
+
+### 利用数据的均值、中位数值或众数
 mean()、median() 和 mode() 方法计算列的均值（所有值加起来的平均值）、中位数值（排序后排在中间的数）和众数（出现频率最高的数）：
 
 mean()：
@@ -1479,7 +1536,7 @@ print(df.to_string())
 ```
 
 
-### Cleaning of incorrectly formatted data 清洗格式错误数据
+### 清洗格式错误数据
 过包含空单元格的行，或者将列中的所有单元格转换为相同格式的数据
 ```python
 import pandas as pd
@@ -1503,7 +1560,7 @@ day2 2020-12-02        40
 day3 2020-12-26        45
 ```
 
-### Cleaning of incorrect data 清洗错误数据
+### 清洗错误数据
 对错误的数据进行替换或移除：
 
 ```python
@@ -1553,7 +1610,7 @@ print(df.to_string())
 ```
 
 
-### Cleaning duplicate data 清洗重复数据
+### 清洗重复数据
 
 如果我们要清洗重复数据，可以使用 duplicated() 和 drop_duplicates() 方法。
 如果对应的数据是重复的，duplicated() 会返回 True，否则返回 False。
@@ -1767,6 +1824,8 @@ print(df.loc[[0, 1]])
 1       380        40
 ```
 
+
+
 #### iloc() by position
 与loc一样，第一行索引为 0，第二行索引为 1，以此类推：
 
@@ -1785,6 +1844,31 @@ duration     40
 Name: 1, dtype: int64
 ```
 
+#### .columns
+
+[练习1：数据科学 with Flask](https://blog.csdn.net/m0_66706847/article/details/126349902?csdn_share_tail=%7B%22type%22%3A%22blog%22%2C%22rType%22%3A%22article%22%2C%22rId%22%3A%22126349902%22%2C%22source%22%3A%22m0_66706847%22%7D)
+
+获取所有数组的index  [ ][ ]
+
+
+```python
+X.columns
+Index(['total_sqft', 'bath', 'bhk', '1st Block Jayanagar',
+       '1st Phase JP Nagar', '2nd Phase Judicial Layout',
+       '2nd Stage Nagarbhavi', '5th Block Hbr Layout', '5th Phase JP Nagar',
+       '6th Phase JP Nagar',
+       ...
+       'Vijayanagar', 'Vishveshwarya Layout', 'Vishwapriya Layout',
+       'Vittasandra', 'Whitefield', 'Yelachenahalli', 'Yelahanka',
+       'Yelahanka New Town', 'Yelenahalli', 'Yeshwanthpur'],
+      dtype='object', length=244)
+      
+np.where(X.columns == '2nd Phase Judicial Layout')[0][0] # index of 2nd Phase Judicial Layout
+# if one [0] only, return array([5])
+
+# return 
+5
+```
 
 ---
 
@@ -1975,6 +2059,45 @@ height	weight	smoker	gender	age	color
 99	189	54	False	1	44	white
 ```
 
+[练习1：数据科学 with Flask](https://blog.csdn.net/m0_66706847/article/details/126349902?csdn_share_tail=%7B%22type%22%3A%22blog%22%2C%22rType%22%3A%22article%22%2C%22rId%22%3A%22126349902%22%2C%22source%22%3A%22m0_66706847%22%7D) 的例子：
+
+1. 全部split' '，获取第一个element
+```python
+array(['2 BHK', '4 Bedroom', '3 BHK', '4 BHK', '6 Bedroom', '3 Bedroom',
+       '1 BHK', '1 RK', '1 Bedroom', '8 Bedroom', '2 Bedroom',
+       '7 Bedroom', '5 BHK', '7 BHK', '6 BHK', '5 Bedroom', '11 BHK',
+       '9 BHK', '9 Bedroom', '27 BHK', '10 Bedroom', '11 Bedroom',
+       '10 BHK', '19 BHK', '16 BHK', '43 Bedroom', '14 BHK', '8 BHK',
+       '12 Bedroom', '13 BHK', '18 Bedroom'], dtype=object)
+
+# Add new feature(integer) for bhk (Bedrooms Hall Kitchen)
+df3['bhk'] = df3['size'].apply(lambda x: int(x.split(' ')[0])) # 拆解' '，取第一个元素
+
+# return 即为 2, 4....
+```
+
+2. 变浮数点
+```python
+df3[df3['total_sqft'].apply(is_float)].head(10)
+
+
+df4 = df3.copy()
+df4['total_sqft'] = df4['total_sqft'].apply(convert_sqft_to_num)
+df4.head()
+
+# return
+
+location	size	total_sqft	bath	price	bhk
+0	Electronic City Phase II	2 BHK	1056.0	2.0	39.07	2
+1	Chikka Tirupathi	4 Bedroom	2600.0	5.0	120.00	4
+2	Uttarahalli	3 BHK	1440.0	2.0	62.00	3
+3	Lingadheeranahalli	3 BHK	1521.0	3.0	95.00	3
+4	Kothanur	2 BHK	1200.0	2.0	51.00	2
+```
+
+
+
+
 
 ### applymap
 applymap会对DataFrame中的每个单元格执行指定函数的操作
@@ -2024,6 +2147,81 @@ height	weight	smoker	gender	age	color	female	male
 98	159	55	False	male	57	yellow	0	1
 99	182	74	False	female	53	white	1	0
 ```
+
+### split()
+
+移除字符串头尾指定的字符
+
+```python
+df5.location
+
+# return
+0        Electronic City Phase II
+1                Chikka Tirupathi
+2                     Uttarahalli
+3              Lingadheeranahalli
+4                        Kothanur
+                   ...           
+13315                  Whitefield
+13316               Richards Town
+13317       Raja Rajeshwari Nagar
+13318             Padmanabhanagar
+13319                Doddathoguru
+Name: location, Length: 13246, dtype: object
+
+# Examine locations which is a categorical variable. We need to apply dimensionality reduction technique here to reduce number of locations
+df5.location = df5.location.apply(lambda x: x.strip()) # strip()用于移除字符串头尾指定的字符（默认为空格或换行符）或字符序列
+
+location_stats = df5.groupby('location')['location'].count()  # how many types does it have
+location_stats
+
+# return
+location
+1 Annasandrapalya                                  1
+1 Giri Nagar                                       1
+1 Immadihalli                                      1
+1 Ramamurthy Nagar                                 1
+12th cross srinivas nagar banshankari 3rd stage    1
+                                                  ..
+t.c palya                                          1
+tc.palya                                           4
+vinayakanagar                                      1
+white field,kadugodi                               1
+whitefiled                                         1
+Name: location, Length: 1293, dtype: int64
+```
+
+### operator: ~
+The bitwise operator ~ (tilde) is a complement operator. So ~i on an integer value i is ~i=-i-1
+```python
+df6 = df5[~(df5.total_sqft/df5.bhk<300)] 
+# negate on the criteria if you want to filter the rows
+df6.shape
+
+
+'''
+In[1]：s = pd.Series(range(-3, 4))
+Out[1]: s
+0   -3
+1   -2
+2   -1
+3    0
+4    1
+5    2
+6    3
+
+In[2]:s[~(s < 0)] -> -(s < 0)-1 -> s > -1
+Out[2]: 
+3    0
+4    1
+5    2
+6    3
+dtype: int64
+'''
+```
+
+
+---
 
 ## Groupby
 筛选某个组别名：
@@ -2108,7 +2306,7 @@ us_weather = pd.DataFrame({
 us_weather
 
 # return
-	city	temperature	humidity
+city	temperature	humidity
 0	new york	21	68
 1	chicago	14	65
 2	orlando	35	75
@@ -2566,7 +2764,7 @@ Male	31.2	28.0
 
 
 ---
-## Data operation 数据操作
+## 数据操作
 ### 内置函数 max(), min(), std()
 查找某个数值：
 
@@ -2614,7 +2812,7 @@ day	temperature	windspeed	event
 
 
 
-### Operators 操作符 > < = 
+### 操作符 > < = 
 
 ```python
 df[df['temperature']>32] # df[df.temperature>32] 
@@ -2643,15 +2841,11 @@ df[df['temperature']>32] # df[df.temperature>32]
 # Reference
 
 [Runoob: Matplotlib](https://www.runoob.com/matplotlib/matplotlib-tutorial.html)
-<br>
 [Runoob: NumPy](https://www.runoob.com/numpy/numpy-tutorial.html)
-<br>
 [Runoob: Pandas](https://www.runoob.com/pandas/pandas-tutorial.html)
-<br>
+
 [Matplotlib.org](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html)
-<br>
 [Numpy.org](https://numpy.org/doc/stable/user/whatisnumpy.html)
-<br>
 [Pandas.pydata.org](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html)
-<br>
+
 [Pandas教程 | 数据处理三板斧——map、apply、applymap详解](https://zhuanlan.zhihu.com/p/100064394)
