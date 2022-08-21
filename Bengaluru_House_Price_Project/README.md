@@ -918,7 +918,7 @@ url linkage
 
 1. datascience: 需要熟悉数据集的feature才能进行筛选；多练习；还有补machine learning的知识
 2. web development: flask, postman 等工具；需要补web方面的知识，前端三剑客、还有框架
-3. datascience和web development之间的联系，可以说是backend 和 frontend 吧
+3. 以前只知道datascience处理数据，对于具体如何呈现/应用有用的数据缺少理解
 
 持续学习，无限进步哈哈哈
 
@@ -930,4 +930,5 @@ url linkage
 # Reference 参考资料
 
 [virtualenv](https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one)
+<br>
 [如果你在 macOS 上无法访问 Flask 程序](https://greyli.com/thank-you-apple/)
