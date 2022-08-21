@@ -14,7 +14,7 @@
     - [进行数据清洗时，先了解数据集里面有什么feature](#进行数据清洗时先了解数据集里面有什么feature)
     - [查看认为不需要的数据集并且drop掉](#查看认为不需要的数据集并且drop掉)
     - [drop 掉null value](#drop-掉null-value)
-    - [查看不一致的单位，并且进行更换。](#查看不一致的单位并且进行更换)
+    - [查看不一致的单位，并且进行更换](#查看不一致的单位并且进行更换)
     - [转换小数](#转换小数)
   - [Feature Engineering](#feature-engineering)
     - [改变feature](#改变feature)
@@ -174,7 +174,7 @@ df3 = df2.dropna()
 df3.isnull().sum()
 ```
 
-### 查看不一致的单位，并且进行更换。
+### 查看不一致的单位，并且进行更换
 
 ```python
 df3['size'].unique()
@@ -918,7 +918,7 @@ url linkage
 
 1. datascience: 需要熟悉数据集的feature才能进行筛选；多练习；还有补machine learning的知识
 2. web development: flask, postman 等工具；需要补web方面的知识，前端三剑客、还有框架
-3. 以前只知道datascience处理数据，对于具体如何呈现/应用有用的数据缺少理解
+3. 以前只知道datascience负责处理数据，对于具体如何在web上呈现/应用有用的数据缺少了解
 
 持续学习，无限进步哈哈哈
 
