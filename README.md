@@ -55,6 +55,8 @@ Matplotlib, Numpy, Panadas
     - [dropna()](#dropna)
     - [isnull()](#isnull)
     - [fillna()](#fillna)
+    - [mean() for single column](#mean-for-single-column)
+    - [mean() for multiple columns](#mean-for-multiple-columns)
     - [interpolate() 中和数值](#interpolate-中和数值)
     - [replace()](#replace)
     - [split()](#split)
@@ -1205,7 +1207,7 @@ print (df['NUM_BEDROOMS'].isnull())
 
 ### fillna()
 fillna() 方法替换一些空字段：
-- fillna(.mean())
+- fillna()
 
 ```python
 import pandas as pd
@@ -1297,6 +1299,42 @@ day
 2017-01-10	34.0	8.0	Cloudy
 2017-01-11	40.0	12.0	Sunny
 ```
+
+### mean() for single column
+
+```python
+
+import numpy as np
+import pandas as pd
+  
+# A dictionary with list as values
+GFG_dict = { 'G1': [10, 20,30,40],
+                'G2': [25, np.NaN, np.NaN, 29],
+                'G3': [15, 14, 17, 11],
+                'G4': [21, 22, 23, 25]}
+  
+# Create a DataFrame from dictionary
+gfg = pd.DataFrame(GFG_dict)
+  
+#Finding the mean of the column having NaN
+mean_value=gfg['G2'].mean()
+  
+# Replace NaNs in column S2 with the
+# mean of values in the same column
+gfg['G2'].fillna(value=mean_value, inplace=True)
+print('Updated Dataframe:')
+print(gfg)
+```
+
+### mean() for multiple columns
+
+@ Day1 ML Challenge
+  ```python
+from sklearn.preprocessing import Imputer
+imputer = Imputer(missing_values = "NaN", strategy = "mean", axis = 0)
+imputer = imputer.fit(X[ : , 1:3])
+X[ : , 1:3] = imputer.transform(X[ : , 1:3])
+  ```
 
 ### interpolate() 中和数值
 
