@@ -1330,10 +1330,14 @@ print(gfg)
 
 @ Day1 ML Challenge
   ```python
-from sklearn.preprocessing import Imputer
-imputer = Imputer(missing_values = "NaN", strategy = "mean", axis = 0)
-imputer = imputer.fit(X[ : , 1:3])
-X[ : , 1:3] = imputer.transform(X[ : , 1:3])
+# from sklearn.preprocessing import Imputer
+from sklearn.impute import SimpleImputer as Imputer
+# old version: class sklearn.preprocessing.Imputer(missing_values=’NaN’, strategy=’mean’, axis=0, verbose=0, copy=True)  https://blog.csdn.net/weixin_43582443/article/details/111145027
+
+imputer = Imputer(missing_values=np.nan,strategy="mean")
+imputer = imputer.fit(X[:, 1:3])
+X[:, 1:3] = imputer.transform(X[:, 1:3])
+X
   ```
 
 ### interpolate() 中和数值
@@ -2227,6 +2231,26 @@ height	weight	smoker	gender	age	color	female	male
 98	159	55	False	male	57	yellow	0	1
 99	182	74	False	female	53	white	1	0
 ```
+
+
+```python
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+labelencoder_X = LabelEncoder()
+X[ : , 0] = labelencoder_X.fit_transform(X[ : , 0])
+
+# onehotencoder = OneHotEncoder(categorical_features = [0])
+# X = onehotencoder.fit_transform(X).toarray()
+# labelencoder_Y = LabelEncoder()
+# Y =  labelencoder_Y.fit_transform(Y)
+
+# onehotencoder = OneHotEncoder(categorical_features = [0])
+onehotencoder = OneHotEncoder()
+X = onehotencoder.fit_transform(X).toarray()
+labelencoder_Y = LabelEncoder()
+Y =  labelencoder_Y.fit_transform(y)
+
+```
+
 
 ### split()
 
