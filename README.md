@@ -83,7 +83,8 @@ Matplotlib, Numpy, Panadas
     - [mapping](#mapping)
     - [apply](#apply)
     - [applymap](#applymap)
-    - [get_dummies](#get_dummies)
+    - [get_dummies 1010](#get_dummies-1010)
+    - [LabelEncoder 1010 and OneHotEnoder](#labelencoder-1010-and-onehotenoder)
     - [split()](#split-1)
     - [operator: ~](#operator-)
   - [Groupby](#groupby)
@@ -2208,7 +2209,11 @@ A	B	C	D	E
 ```
 
 
-### get_dummies
+### get_dummies 1010
+Using get_dummies while using pandas to convert categorical variable into dummy/indicator variables.
+For example, if there is female and male columns, and using get_dummies will generate two new columns for them. Usually it is used when there is a need to drop one of the column for prediction, like Naive Bayes.
+
+
 
 ```python
 data_df = pd.get_dummies(data.gender)
@@ -2232,7 +2237,9 @@ height	weight	smoker	gender	age	color	female	male
 99	182	74	False	female	53	white	1	0
 ```
 
-
+### LabelEncoder 1010 and OneHotEnoder
+Label Encoder is for 10101010
+while Onecoder is for the array ([1,0,1,0...0,1,0,1])
 ```python
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 labelencoder_X = LabelEncoder()
@@ -2246,9 +2253,9 @@ X[ : , 0] = labelencoder_X.fit_transform(X[ : , 0])
 # onehotencoder = OneHotEncoder(categorical_features = [0])
 onehotencoder = OneHotEncoder()
 X = onehotencoder.fit_transform(X).toarray()
+
 labelencoder_Y = LabelEncoder()
 Y =  labelencoder_Y.fit_transform(y)
-
 ```
 
 
