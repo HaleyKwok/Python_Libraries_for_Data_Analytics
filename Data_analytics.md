@@ -1,9 +1,8 @@
-# Python_Libraries_for_Data_Analytics
- 
-Matplotlib, Numpy, Panadas 
+﻿<span style = 'font-family: "Times New Roman'>
+
+学习Matplotlib, Numpy, Panadas 的自我记录。
 
 
-- [Python\_Libraries\_for\_Data\_Analytics](#python_libraries_for_data_analytics)
 - [Matplotlib](#matplotlib)
   - [Matplotlib Pyplot](#matplotlib-pyplot)
     - [plot()](#plot)
@@ -55,11 +54,8 @@ Matplotlib, Numpy, Panadas
     - [dropna()](#dropna)
     - [isnull()](#isnull)
     - [fillna()](#fillna)
-    - [mean() for single column](#mean-for-single-column)
-    - [mean() for multiple columns](#mean-for-multiple-columns)
     - [interpolate() 中和数值](#interpolate-中和数值)
     - [replace()](#replace)
-    - [split()](#split)
     - [利用数据的均值、中位数值或众数](#利用数据的均值中位数值或众数)
     - [清洗格式错误数据](#清洗格式错误数据)
     - [清洗错误数据](#清洗错误数据)
@@ -72,7 +68,6 @@ Matplotlib, Numpy, Panadas
       - [reset\_index](#reset_index)
       - [loc() by label](#loc-by-label)
       - [iloc() by position](#iloc-by-position)
-      - [.columns](#columns)
   - [数据处理rows 行](#数据处理rows-行)
     - [head()](#head)
     - [tail()](#tail)
@@ -83,10 +78,7 @@ Matplotlib, Numpy, Panadas
     - [mapping](#mapping)
     - [apply](#apply)
     - [applymap](#applymap)
-    - [get\_dummies 1010](#get_dummies-1010)
-    - [LabelEncoder 1010 and OneHotEnoder](#labelencoder-1010-and-onehotenoder)
-    - [split()](#split-1)
-    - [operator: ~](#operator-)
+    - [get\_dummies](#get_dummies)
   - [Groupby](#groupby)
   - [Concatenation 串联](#concatenation-串联)
     - [Concatenation And Keys](#concatenation-and-keys)
@@ -113,6 +105,7 @@ Matplotlib, Numpy, Panadas
     - [操作符 \> \< =](#操作符---)
   - [Summary](#summary)
 - [Reference](#reference)
+
 # Matplotlib
 ## Matplotlib Pyplot
 使用 import 导入 pyplot 库，并设置一个别名 plt:
@@ -1208,7 +1201,7 @@ print (df['NUM_BEDROOMS'].isnull())
 
 ### fillna()
 fillna() 方法替换一些空字段：
-- fillna()
+- fillna(.mean())
 
 ```python
 import pandas as pd
@@ -1300,46 +1293,6 @@ day
 2017-01-10	34.0	8.0	Cloudy
 2017-01-11	40.0	12.0	Sunny
 ```
-
-### mean() for single column
-
-```python
-
-import numpy as np
-import pandas as pd
-  
-# A dictionary with list as values
-GFG_dict = { 'G1': [10, 20,30,40],
-                'G2': [25, np.NaN, np.NaN, 29],
-                'G3': [15, 14, 17, 11],
-                'G4': [21, 22, 23, 25]}
-  
-# Create a DataFrame from dictionary
-gfg = pd.DataFrame(GFG_dict)
-  
-#Finding the mean of the column having NaN
-mean_value=gfg['G2'].mean()
-  
-# Replace NaNs in column S2 with the
-# mean of values in the same column
-gfg['G2'].fillna(value=mean_value, inplace=True)
-print('Updated Dataframe:')
-print(gfg)
-```
-
-### mean() for multiple columns
-
-@ Day1 ML Challenge
-  ```python
-# from sklearn.preprocessing import Imputer
-from sklearn.impute import SimpleImputer as Imputer
-# old version: class sklearn.preprocessing.Imputer(missing_values=’NaN’, strategy=’mean’, axis=0, verbose=0, copy=True)  https://blog.csdn.net/weixin_43582443/article/details/111145027
-
-imputer = Imputer(missing_values=np.nan,strategy="mean")
-imputer = imputer.fit(X[:, 1:3])
-X[:, 1:3] = imputer.transform(X[:, 1:3])
-X
-  ```
 
 ### interpolate() 中和数值
 
@@ -1477,61 +1430,6 @@ df
 4	average	julian
 5	exceptional	erica
 ```
-
-
-### split()
-[练习1：数据科学 with Flask](https://blog.csdn.net/m0_66706847/article/details/126349902?csdn_share_tail=%7B%22type%22%3A%22blog%22%2C%22rType%22%3A%22article%22%2C%22rId%22%3A%22126349902%22%2C%22source%22%3A%22m0_66706847%22%7D) 的例子：
-1. split ' ' 
-```python
-array(['2 BHK', '4 Bedroom', '3 BHK', '4 BHK', '6 Bedroom', '3 Bedroom',
-       '1 BHK', '1 RK', '1 Bedroom', '8 Bedroom', '2 Bedroom',
-       '7 Bedroom', '5 BHK', '7 BHK', '6 BHK', '5 Bedroom', '11 BHK',
-       '9 BHK', '9 Bedroom', '27 BHK', '10 Bedroom', '11 Bedroom',
-       '10 BHK', '19 BHK', '16 BHK', '43 Bedroom', '14 BHK', '8 BHK',
-       '12 Bedroom', '13 BHK', '18 Bedroom'], dtype=object)
-       
-# Add new feature(integer) for bhk (Bedrooms Hall Kitchen)
-df3['bhk'] = df3['size'].apply(lambda x: int(x.split(' ')[0])) # 拆解' '，取第一个元素
-
-# return 即为 2, 4....
-
-df3['bhk'].unique()
-
-# return
-array([ 2,  4,  3,  6,  1,  8,  7,  5, 11,  9, 27, 10, 19, 16, 43, 14, 12,
-       13, 18])
-```
-
-2. split ' - ' 
-```python
-array(['1056', '2600', '1440', ..., '1133 - 1384', '774', '4689'],
-      dtype=object)
-
-def is_float(x):
-        try:
-                float(x)
-                return True
-        except ValueError:
-                return False
-
-df3[df3['total_sqft'].apply(is_float)].head(10) # 没有反应，因为有' - '
-
-def convert_sqft_to_num(x):
-        token = x.split('-')
-        if len(token) == 2:
-                return (float(token[0]) + float(token[1])) / 2
-        try:
-            return float(x)
-        except:
-            return np.nan
-
-
-convert_sqft_to_num('1000-1200') # token[0] = 1000 token[1] = 1200 
-# return
-1100.0
-```
-
-
 
 ### 利用数据的均值、中位数值或众数
 mean()、median() 和 mode() 方法计算列的均值（所有值加起来的平均值）、中位数值（排序后排在中间的数）和众数（出现频率最高的数）：
@@ -1867,8 +1765,6 @@ print(df.loc[[0, 1]])
 1       380        40
 ```
 
-
-
 #### iloc() by position
 与loc一样，第一行索引为 0，第二行索引为 1，以此类推：
 
@@ -1887,31 +1783,6 @@ duration     40
 Name: 1, dtype: int64
 ```
 
-#### .columns
-
-[练习1：数据科学 with Flask](https://blog.csdn.net/m0_66706847/article/details/126349902?csdn_share_tail=%7B%22type%22%3A%22blog%22%2C%22rType%22%3A%22article%22%2C%22rId%22%3A%22126349902%22%2C%22source%22%3A%22m0_66706847%22%7D)
-
-获取所有数组的index  [ ][ ]
-
-
-```python
-X.columns
-Index(['total_sqft', 'bath', 'bhk', '1st Block Jayanagar',
-       '1st Phase JP Nagar', '2nd Phase Judicial Layout',
-       '2nd Stage Nagarbhavi', '5th Block Hbr Layout', '5th Phase JP Nagar',
-       '6th Phase JP Nagar',
-       ...
-       'Vijayanagar', 'Vishveshwarya Layout', 'Vishwapriya Layout',
-       'Vittasandra', 'Whitefield', 'Yelachenahalli', 'Yelahanka',
-       'Yelahanka New Town', 'Yelenahalli', 'Yeshwanthpur'],
-      dtype='object', length=244)
-      
-np.where(X.columns == '2nd Phase Judicial Layout')[0][0] # index of 2nd Phase Judicial Layout
-# if one [0] only, return array([5])
-
-# return 
-5
-```
 
 ---
 
@@ -2073,47 +1944,6 @@ height	weight	smoker	gender	age	color
 8	157	44	False	1	15	white
 9	159	54	True	0	46	white
 ```
-Another example:
-
-```python
-	Survived	Pclass	Sex	Age	Fare
-0	0	3	male	22.0	7.2500
-1	1	1	female	38.0	71.2833
-2	1	3	female	26.0	7.9250
-3	1	1	female	35.0	53.1000
-4	0	3	male	35.0	8.0500
-
-df.Sex = df.Sex.map({'female':1, 'male':0})  
-df.Sex
-
-0      0
-1      1
-2      1
-3      1
-4      0
-      ..
-886    0
-887    1
-888    1
-889    0
-890    0
-Name: Sex, Length: 891, dtype: int64
-
-# return
-	Survived	Pclass	Sex	Age	Fare
-0	0	3	0	22.000000	7.2500
-1	1	1	1	38.000000	71.2833
-2	1	3	1	26.000000	7.9250
-3	1	1	1	35.000000	53.1000
-4	0	3	0	35.000000	8.0500
-...	...	...	...	...	...
-886	0	2	0	27.000000	13.0000
-887	1	1	1	19.000000	30.0000
-888	0	3	1	29.699118	23.4500
-889	1	1	0	26.000000	30.0000
-890	0	3	0	32.000000	7.7500
-```
-
 
 
 ### apply
@@ -2143,45 +1973,6 @@ height	weight	smoker	gender	age	color
 99	189	54	False	1	44	white
 ```
 
-[练习1：数据科学 with Flask](https://blog.csdn.net/m0_66706847/article/details/126349902?csdn_share_tail=%7B%22type%22%3A%22blog%22%2C%22rType%22%3A%22article%22%2C%22rId%22%3A%22126349902%22%2C%22source%22%3A%22m0_66706847%22%7D) 的例子：
-
-1. 全部split' '，获取第一个element
-```python
-array(['2 BHK', '4 Bedroom', '3 BHK', '4 BHK', '6 Bedroom', '3 Bedroom',
-       '1 BHK', '1 RK', '1 Bedroom', '8 Bedroom', '2 Bedroom',
-       '7 Bedroom', '5 BHK', '7 BHK', '6 BHK', '5 Bedroom', '11 BHK',
-       '9 BHK', '9 Bedroom', '27 BHK', '10 Bedroom', '11 Bedroom',
-       '10 BHK', '19 BHK', '16 BHK', '43 Bedroom', '14 BHK', '8 BHK',
-       '12 Bedroom', '13 BHK', '18 Bedroom'], dtype=object)
-
-# Add new feature(integer) for bhk (Bedrooms Hall Kitchen)
-df3['bhk'] = df3['size'].apply(lambda x: int(x.split(' ')[0])) # 拆解' '，取第一个元素
-
-# return 即为 2, 4....
-```
-
-2. 变浮数点
-```python
-df3[df3['total_sqft'].apply(is_float)].head(10)
-
-
-df4 = df3.copy()
-df4['total_sqft'] = df4['total_sqft'].apply(convert_sqft_to_num)
-df4.head()
-
-# return
-
-location	size	total_sqft	bath	price	bhk
-0	Electronic City Phase II	2 BHK	1056.0	2.0	39.07	2
-1	Chikka Tirupathi	4 Bedroom	2600.0	5.0	120.00	4
-2	Uttarahalli	3 BHK	1440.0	2.0	62.00	3
-3	Lingadheeranahalli	3 BHK	1521.0	3.0	95.00	3
-4	Kothanur	2 BHK	1200.0	2.0	51.00	2
-```
-
-
-
-
 
 ### applymap
 applymap会对DataFrame中的每个单元格执行指定函数的操作
@@ -2208,12 +1999,7 @@ A	B	C	D	E
 4	-0.65	0.86	-1.60	-1.28	-0.07
 ```
 
-
-### get_dummies 1010
-Using get_dummies while using pandas to convert categorical variable into dummy/indicator variables.
-For example, if there is female and male columns, and using get_dummies will generate two new columns for them. Usually it is used when there is a need to drop one of the column for prediction, like Naive Bayes.
-
-
+### get_dummies
 
 ```python
 data_df = pd.get_dummies(data.gender)
@@ -2236,103 +2022,6 @@ height	weight	smoker	gender	age	color	female	male
 98	159	55	False	male	57	yellow	0	1
 99	182	74	False	female	53	white	1	0
 ```
-
-### LabelEncoder 1010 and OneHotEnoder
-Label Encoder is for 10101010
-while Onecoder is for the array ([1,0,1,0...0,1,0,1])
-```python
-from sklearn.preprocessing import LabelEncoder, OneHotEncoder
-labelencoder_X = LabelEncoder()
-X[ : , 0] = labelencoder_X.fit_transform(X[ : , 0])
-
-# onehotencoder = OneHotEncoder(categorical_features = [0])
-# X = onehotencoder.fit_transform(X).toarray()
-# labelencoder_Y = LabelEncoder()
-# Y =  labelencoder_Y.fit_transform(Y)
-
-# onehotencoder = OneHotEncoder(categorical_features = [0])
-onehotencoder = OneHotEncoder()
-X = onehotencoder.fit_transform(X).toarray()
-
-labelencoder_Y = LabelEncoder()
-Y =  labelencoder_Y.fit_transform(y)
-```
-
-
-### split()
-
-移除字符串头尾指定的字符
-
-```python
-df5.location
-
-# return
-0        Electronic City Phase II
-1                Chikka Tirupathi
-2                     Uttarahalli
-3              Lingadheeranahalli
-4                        Kothanur
-                   ...           
-13315                  Whitefield
-13316               Richards Town
-13317       Raja Rajeshwari Nagar
-13318             Padmanabhanagar
-13319                Doddathoguru
-Name: location, Length: 13246, dtype: object
-
-# Examine locations which is a categorical variable. We need to apply dimensionality reduction technique here to reduce number of locations
-df5.location = df5.location.apply(lambda x: x.strip()) # strip()用于移除字符串头尾指定的字符（默认为空格或换行符）或字符序列
-
-location_stats = df5.groupby('location')['location'].count()  # how many types does it have
-location_stats
-
-# return
-location
-1 Annasandrapalya                                  1
-1 Giri Nagar                                       1
-1 Immadihalli                                      1
-1 Ramamurthy Nagar                                 1
-12th cross srinivas nagar banshankari 3rd stage    1
-                                                  ..
-t.c palya                                          1
-tc.palya                                           4
-vinayakanagar                                      1
-white field,kadugodi                               1
-whitefiled                                         1
-Name: location, Length: 1293, dtype: int64
-```
-
-### operator: ~
-The bitwise operator ~ (tilde) is a complement operator. So ~i on an integer value i is ~i=-i-1
-```python
-df6 = df5[~(df5.total_sqft/df5.bhk<300)] 
-# negate on the criteria if you want to filter the rows
-df6.shape
-
-
-'''
-In[1]：s = pd.Series(range(-3, 4))
-Out[1]: s
-0   -3
-1   -2
-2   -1
-3    0
-4    1
-5    2
-6    3
-
-In[2]:s[~(s < 0)] -> -(s < 0)-1 -> s > -1
-Out[2]: 
-3    0
-4    1
-5    2
-6    3
-dtype: int64
-'''
-```
-
-
----
 
 ## Groupby
 筛选某个组别名：
@@ -2417,7 +2106,7 @@ us_weather = pd.DataFrame({
 us_weather
 
 # return
-city	temperature	humidity
+	city	temperature	humidity
 0	new york	21	68
 1	chicago	14	65
 2	orlando	35	75
@@ -2438,11 +2127,7 @@ city	temperature	humidity
 ### Concatenation And Keys
 
 ```python
-df = pd.concat([india_weather, us_weather], keys=["india", "us"])
-df
-
-# return
-city	temperature	humidity
+   city	temperature	humidity
 india	
 0	mumbai	32	80
 1	delhi	45	60
