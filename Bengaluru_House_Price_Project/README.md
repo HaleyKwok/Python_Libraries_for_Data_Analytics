@@ -1,4 +1,9 @@
-# Data_Science_Practice 
+Bengaluru House Price Project
+
+This data science project series will describe step by step the process of how to build a real estate price prediction website. We will first build a model using sklearn and linear regression, using the banglore house price dataset from kaggle.com. The second step is to write a python flask server to serve http requests using the saved model. The third part is a website built with html, css and javascript that allows the user to enter the house size, bedrooms, etc. It will call the python flask server to retrieve the predicted prices. During the model building process, we will cover almost all data science concepts such as data loading and cleaning, outlier detection and removal, feature engineering, dimensionality reduction, gridsearchcv for hyperparameter tuning, k-fold cross validation, etc. Technically and tool-wise, this project includes, among others.
+
+
+---
 
 
 - [Data_Science_Practice](#data_science_practice)
@@ -923,7 +928,6 @@ url linkage
 2. web development: flask, postman 等工具；需要补web方面的知识，前端三剑客、还有框架
 3. 以前只知道datascience负责处理数据，对于具体如何在web上呈现/应用有用的数据缺少了解
 
-持续学习，无限进步哈哈哈
 
 ---
 # Source 练习来源
