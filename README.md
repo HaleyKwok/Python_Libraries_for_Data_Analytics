@@ -1,4 +1,4 @@
-# Python_Libraries_for_Data_Analytics
+# Python Libraries for Data Analytics
 
 
 ## 📍 Mission
@@ -32,6 +32,7 @@ A collection of some online materials.
 ---
 ## 📋 Notes
 [Markdown format](https://github.com/HaleyKwok/Python_Libraries_for_Data_Analytics/blob/main/DataAnalytics.md)
+<br>
 [PDF format](https://github.com/HaleyKwok/Python_Libraries_for_Data_Analytics/blob/main/DataAnalytics.pdf)
 
 ---
