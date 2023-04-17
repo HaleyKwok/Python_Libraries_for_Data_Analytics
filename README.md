@@ -36,7 +36,7 @@ A collection of some online materials.
 
 ---
 
-## Project
+## 🧾 Project
 [Bengaluru House Price Project](https://github.com/HaleyKwok/Python_Libraries_for_Data_Analytics/tree/main/Bengaluru_House_Price_Project)
 
 This data science project series will describe step by step the process of how to build a real estate price prediction website. We will first build a model using sklearn and linear regression, using the banglore house price dataset from kaggle.com. The second step is to write a python flask server to serve http requests using the saved model. The third part is a website built with html, css and javascript that allows the user to enter the house size, bedrooms, etc. It will call the python flask server to retrieve the predicted prices. During the model building process, we will cover almost all data science concepts such as data loading and cleaning, outlier detection and removal, feature engineering, dimensionality reduction, gridsearchcv for hyperparameter tuning, k-fold cross validation, etc. Technically and tool-wise, this project includes, among others.
