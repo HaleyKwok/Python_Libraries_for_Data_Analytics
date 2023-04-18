@@ -61,6 +61,9 @@ Once our model is built, we can package it into a Flask app. Here are the steps 
 - Create a client-side interface using HTML, CSS, and JavaScript
 - Test our app using Postman
 
+<div align = "center"><img src = "https://github.com/HaleyKwok/Python_Libraries_for_Data_Analytics/blob/main/Bengaluru_House_Price_Project/Framework.png" align = "center">
+</div>
+
 ### Final Product
 The final product of this practice repository will be a Flask app that takes in a set of features and predicts the price of a home in Bangalore, India.
 
