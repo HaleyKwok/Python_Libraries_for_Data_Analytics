@@ -3,6 +3,7 @@
 
 ## 📍 Mission
 The mission of this repository is to provide beginners with an easy-to-follow guide on the most popular Python libraries used in data analytics. We aim to provide clear and concise explanations, as well as practical examples, of how to use these libraries to manipulate, analyze, and visualize data. Our goal is to empower individuals with the knowledge and skills necessary to succeed in the field of data analytics.
+
 --- 
 
 ## 🔆 Introduction
