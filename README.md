@@ -65,7 +65,7 @@ The authors or copyright holders are not be liable for any claim, damages or oth
 
 
 ## 📢 Disclaimer
-We develop this repository for Self-learning purposes, so it can only be used for personal/research/non-commercial purposes.
+This repository is for personal/research/non-commercial use only.
 
 ---
 
